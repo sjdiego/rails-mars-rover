@@ -1,0 +1,12 @@
+<header>
+  <h1 class="font-sans text-4xl"><%=@title%></h1>
+</header>
+
+<section class="container flex flex-col max-w-screen-lg">
+  <article>
+    <%= render partial: 'partials/input-box' %>
+  </article>
+  <article class="invisible">
+    <%= render partial: 'partials/output-box' %>
+  </article>
+</section>

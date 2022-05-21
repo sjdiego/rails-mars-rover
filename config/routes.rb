@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   
   get "/", to: "main#index", as: :main_index
-
-  post "/plateau/create", to: "plateau#create", as: :plateau_create
+  post "/", to: "main#submit", as: :send_commands
 end

@@ -6,3 +6,4 @@ COPY . .
 
 RUN bundle install
 
+RUN rails tailwindcss:install

@@ -1,7 +1,7 @@
 class Vehicle
   include ActiveModel::API
   attr_accessor :x, :y, :orientation
-  
+
   # Set the placement of the vehicle
   def initialize(x, y, orientation)
     @x = x
