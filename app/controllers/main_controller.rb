@@ -17,8 +17,7 @@ class MainController < ApplicationController
     final_positions = ::ActionsParser::Processer.new.call(vactions, plateau)
 
     return render :json => {
-      :final_positions => final_positions,
-      :commands => commands,
+      :final_positions => final_positions
     }, :status => :created
   end
 end

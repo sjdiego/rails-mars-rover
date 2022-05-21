@@ -7,7 +7,7 @@ module ActionsParser
         vehicle = va[0]
         actions = va[1][1]
 
-        final_positions.push(execute(vehicle, actions, plateau))
+        final_positions.push(execute(vehicle, actions))
       end
 
       return final_positions
@@ -15,14 +15,19 @@ module ActionsParser
 
     private
 
-    def execute(vehicle, actions, plateau)
-      position_x = vehicle.x
-      position_y = vehicle.y
-      orientation = vehicle.orientation
-
-      actions.each do |a|
-        puts a.str
+    def execute(vehicle, actions)
+      actions.each do |act|
+        vehicle = case act.str
+          when "M"
+            ::DisplacerVehicle::Move.new.forward(vehicle)
+          when "L"
+             ::SpinnerVehicle::Spin.new.left(vehicle)
+          when "R"
+            ::SpinnerVehicle::Spin.new.right(vehicle)
+        end
       end
+
+      return vehicle
     end
   end
 end
