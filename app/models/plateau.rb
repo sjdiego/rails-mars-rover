@@ -4,8 +4,8 @@ class Plateau
 
   # Set the max size of the plateau
   def initialize(x, y)
-    @x = x
-    @y = y
+    @x = x.to_i
+    @y = y.to_i
   end
 
   # Validate the plateau size
