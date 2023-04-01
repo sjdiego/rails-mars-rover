@@ -18,7 +18,7 @@ class ActionTest < ActiveSupport::TestCase
   end
 
   test "should fail creating an action with another invalid action" do
-    assert_not Action.new(7).valid?
+    assert_not Action.new("7").valid?
   end
 
   test "should fail creating an action with multiple valid commands" do
