@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Plateau
   include ActiveModel::API
   attr_accessor :x, :y

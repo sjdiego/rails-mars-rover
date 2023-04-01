@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Action
   include ActiveModel::API
   attr_accessor :str

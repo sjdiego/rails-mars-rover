@@ -1,22 +1,24 @@
+# frozen_string_literal: true
+
 class MainController < ApplicationController
   def index
     @title = 'Mars Rover'
   end
 
   def submit
-    if params[:input_commands] == nil
-      return render :json => {
-        :error => "Missing parameters"
-      }, :status => :unprocessable_entity
+    if params[:input_commands].nil?
+      return render json: {
+        error: 'Missing parameters'
+      }, status: :unprocessable_entity
     end
 
     commands = params[:input_commands].split("\n")
-    commands = commands.reject { |c| c.empty? }
+    commands = commands.reject(&:empty?)
 
-    if commands.length == 0
-      return render :json => {
-        :error => "Error parsing parameters"
-      }, :status => :unprocessable_entity
+    if commands.empty?
+      return render json: {
+        error: 'Error parsing parameters'
+      }, status: :unprocessable_entity
     end
 
     plateau_cmd = commands[0]
@@ -29,17 +31,17 @@ class MainController < ApplicationController
     vactions = vehicles.zip(actions)
     final_positions = ::ActionsParser::Processer.new.call(vactions, plateau)
 
-    output_textbox = ""
+    output_textbox = ''
     final_positions.each do |v|
-      output_textbox = output_textbox + "#{v.x} #{v.y} #{v.orientation}\n"
+      output_textbox += "#{v.x} #{v.y} #{v.orientation}\n"
     end
 
-    return render :json => {
-      :final_positions => final_positions,
+    render json: {
+      final_positions:,
       html: render_to_string(
-        partial: "partials/output-box",
-        locals: { output_textbox: output_textbox }
-      ),
-    }, :status => :created
+        partial: 'partials/output-box',
+        locals: { output_textbox: }
+      )
+    }, status: :created
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActionsParser
   class Processer
     def call(vactions, _plateau)
@@ -14,7 +16,7 @@ module ActionsParser
         final_positions.push(final_position)
       end
 
-      return final_positions
+      final_positions
     end
 
     private
@@ -22,20 +24,20 @@ module ActionsParser
     def execute(vehicle, actions)
       actions.each do |act|
         vehicle = case act.str
-                  when "M"
+                  when 'M'
                     ::DisplacerVehicle::Move.new.forward(vehicle)
-                  when "L"
+                  when 'L'
                     ::SpinnerVehicle::Spin.new.left(vehicle)
-                  when "R"
+                  when 'R'
                     ::SpinnerVehicle::Spin.new.right(vehicle)
                   end
       end
 
-      return vehicle
+      vehicle
     end
 
     def valid_position(coords, plateau)
-      return (coords.x >= 0 && coords.x < plateau.x) && (coords.y >= 0 && coords.y < plateau.y)
+      (coords.x >= 0 && coords.x < plateau.x) && (coords.y >= 0 && coords.y < plateau.y)
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Vehicle
   include ActiveModel::API
   attr_accessor :x, :y, :orientation
