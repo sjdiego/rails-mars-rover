@@ -76,3 +76,8 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "sd_notify", "= 0.1.0"
 
 gem "bundler-audit", "~> 0.9.1"
+
+gem "brakeman"
+
+gem "rubocop", require: false
+
