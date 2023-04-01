@@ -28,7 +28,7 @@ class ActionTest < ActiveSupport::TestCase
   test "should fail creating an action with multiple invalid commands" do
     assert_not Action.new("XAXXXASFFQAWLSLRL").valid?
   end
-  
+
   test "should fail creating an action without parameters" do
     assert_raises(ArgumentError) { Vehicle.new(nil) }
   end

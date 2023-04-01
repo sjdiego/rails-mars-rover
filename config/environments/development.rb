@@ -69,6 +69,6 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.web_console.permissions = '213.94.0.0/16'
-  
+
   Rails.application.config.hosts << 'gkkoqauc5zraomvr15qrocw7o6xfomw9.diego.cat'
 end

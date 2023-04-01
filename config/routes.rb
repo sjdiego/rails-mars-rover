@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  
+
   get "/", to: "main#index", as: :main_index
   post "/", to: "main#submit", as: :send_commands
 end

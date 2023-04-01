@@ -8,5 +8,5 @@ class Action
   end
 
   # Validate the action (L: Left, R: Right, M: Move forward)
-  validates :str, format: {with: /\A[LRM]\z/}
+  validates :str, format: { with: /\A[LRM]\z/ }
 end

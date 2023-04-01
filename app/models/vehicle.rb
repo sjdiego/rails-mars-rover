@@ -12,5 +12,5 @@ class Vehicle
   # Validate the vehicle position and orientation
   validates :x, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :y, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :orientation, format: {with: /\A[NESW]\z/}
+  validates :orientation, format: { with: /\A[NESW]\z/ }
 end
